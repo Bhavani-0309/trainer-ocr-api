@@ -2,13 +2,15 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "WE HELP OCR API Running ✅"
+
 @app.route('/verify', methods=['POST'])
 def verify():
 
     name = request.form.get("name")
     qualification = request.form.get("qualification")
-
-    # OCR logic will be added later
 
     return jsonify({
         "status":"Verified",
